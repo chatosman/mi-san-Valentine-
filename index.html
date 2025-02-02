@@ -109,7 +109,7 @@
             font-size: 1.8em;
             color: #fff;
             font-weight: bold;
-            margin-top: 50px;
+            margin-top: 200px; /* Aumentamos el margen superior */
             animation: fadeIn 1s ease-out forwards;
         }
 
@@ -131,8 +131,6 @@
             <div id="message">Nos vemos el 14 de febrero mi estrellita</div>
         </div>
 
-        <div id="noThanksMessage">¡Qué mal! 😢 ¡Me duele el corazón! 💔 Pero está bien, seguiré esperando...</div>
-
         <!-- Aquí se agrega el mensaje final -->
         <div id="finalMessage">
             Y te escojo a ti, siempre a ti. No te cambiaría por nadie ni por nada en el mundo. Siempre serás tú, aunque estemos lejos, aunque tengamos diferencias, siempre tú y nadie más que tú. Te amo, Anelhi.
@@ -143,7 +141,6 @@
         function showImage() {
             var img = document.getElementById("image");
             img.style.display = "block";  // Muestra la imagen con el mensaje
-            document.getElementById("noThanksMessage").style.display = "none";  // Oculta el mensaje de broma
             document.querySelectorAll('.btn').forEach(function(btn) {
                 btn.style.pointerEvents = "none"; // Deshabilita los botones
             });
