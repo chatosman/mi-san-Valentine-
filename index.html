@@ -68,6 +68,21 @@
             width: 80%;
             border-radius: 15px;
         }
+        #noquiero {
+            margin-top: 20px;
+            padding: 12px 25px;
+            font-size: 1.5rem;
+            background-color: #ff1e77;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            cursor: pointer;
+            position: absolute;
+            transition: 0.3s ease;
+        }
+        #noquiero:hover {
+            background-color: #ff4c92;
+        }
     </style>
 </head>
 <body>
@@ -82,19 +97,32 @@
         </div>
     </div>
 
+    <!-- El "No quiero" que se mueve -->
+    <div id="noquiero" onclick="moveNoQuiero()">No quiero 😔</div>
+
     <div id="image">
         <img src="https://cdn.pixabay.com/photo/2014/04/03/11/57/lotus-312694_1280.png" alt="Flor de Loto San Valentín" class="finalImage">
     </div>
 
     <script>
         function showImage() {
-            document.getElementById("message").style.display = "none"; // Oculta el mensaje inicial
-            document.getElementById("finalMessage").style.display = "block"; // Muestra el mensaje final
+            // Ocultar el mensaje inicial y mostrar el mensaje final
+            document.getElementById("message").style.display = "none"; 
+            document.getElementById("finalMessage").style.display = "block"; 
             var img = document.getElementById("image");
-            img.style.display = "block";  // Muestra la imagen con el mensaje final
+            img.style.display = "block";  // Mostrar la imagen con el mensaje final
+            document.getElementById("noquiero").style.display = "none";  // Esconder el botón "No quiero"
+        }
+
+        function moveNoQuiero() {
+            // Mover el "No quiero" en la pantalla si se hace clic
+            var button = document.getElementById("noquiero");
+            var x = Math.random() * window.innerWidth;
+            var y = Math.random() * window.innerHeight;
+            button.style.left = x + "px";
+            button.style.top = y + "px";
         }
     </script>
 
 </body>
 </html>
-
