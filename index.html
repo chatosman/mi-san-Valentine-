@@ -6,130 +6,115 @@
     <title>¿Quieres ser mi San Valentín?</title>
     <style>
         body {
-            text-align: center;
-            background-color: #ffe6f2;
-            font-family: Arial, sans-serif;
-            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            font-family: 'Georgia', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            color: #6f42c1;
         }
         h1 {
-            color: #ff1493;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #ff4b9d;
+        }
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            font-weight: normal;
         }
         .container {
-            margin-top: 50px;
-        }
-        .heart {
-            width: 100px;
-            height: auto;
-            margin: 10px;
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(to bottom, #ff6ec7, #ff9a9e);
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 70%;
+            max-width: 600px;
         }
         .btn {
             display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #ff69b4;
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            background-color: #ff4b9d;
             color: white;
-            font-size: 20px;
             text-decoration: none;
             border-radius: 10px;
-            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s;
         }
-        #image {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 10;
+        .btn:hover {
+            background-color: #f064cb;
         }
-        .message {
-            font-size: 24px;
-            color: #ff1493;
+        .heart {
+            width: 70px;
+            height: auto;
+            margin: 10px;
+        }
+        #message {
+            font-size: 1.3rem;
+            margin-top: 20px;
+            color: #4b0082;
             font-weight: bold;
+            display: none;
+            transition: all 1s ease-in-out;
+        }
+        #finalMessage {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: #8b008b;
+            margin-top: 20px;
+            display: none;
+        }
+        .image-container {
+            display: none;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            display: none;
-            z-index: 11;
-            animation: fadeIn 2s forwards;
+            animation: fadeIn 1s ease-in-out;
         }
         @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
-        .heart-animation {
-            position: absolute;
-            top: 20px;
-            animation: heartAnimation 4s infinite;
-        }
-        @keyframes heartAnimation {
-            0% { top: 20px; left: 30px; }
-            25% { top: 30px; left: 50px; }
-            50% { top: 40px; left: 70px; }
-            75% { top: 50px; left: 90px; }
-            100% { top: 60px; left: 110px; }
+        .finalImage {
+            max-width: 90%;
+            border-radius: 15px;
         }
     </style>
 </head>
 <body>
+
     <div class="container">
         <h1>💖 ¡Hola, mi linda princesita! 💖</h1>
-        <p>Aunque aún no estés aquí, quería hacer algo especial para ti... Así que aquí está mi pregunta:</p>
-        <h2>¿Quieres ser mi San Valentín? 💕</h2>
-        <img src="https://cdn.uc.assets.prezly.com/5484e519-cf50-41e9-bf6f-19a972485149/-/resize/1108x/-/quality/best/-/format/auto/" class="heart">
-        <img src="https://w7.pngwing.com/pngs/398/472/png-transparent-hello-kitty-sanrio-puroland-cinnamoroll-my-melody-cinnamoroll-fictional-character-hello-kitty-keroppi-thumbnail.png" alt="Cinnamoroll con corazones" class="heart">
-        <br>
+        <h2>Aunque no estés aquí, quería hacer algo especial para ti... así que aquí está mi pregunta:</h2>
         <a href="#" class="btn" onclick="showImage()">¡Sí, quiero! 💘</a>
-        <a href="#" class="btn" id="no-quiero" onclick="moveNoQuiero()">No quiero 😢</a>
+        <div id="message">¡Qué alegría! ❤️</div>
+        <div id="finalMessage">
+            <p>Y te escojo a ti, siempre a ti. No te cambiaría por nadie ni por nada en el mundo. Siempre serás tú, aunque estemos lejos, aunque tengamos diferencias, siempre tú y nadie más que tú. Te amo, Anelhi.</p>
+        </div>
     </div>
 
-    <!-- Imagen que aparecerá al hacer clic en el botón "Sí quiero" -->
-    <div id="image">
-        <img src="https://cdn.pixabay.com/photo/2014/04/03/11/57/lotus-312694_1280.png" alt="Flor de Loto San Valentín" style="width: 100%; height: 100vh; object-fit: cover;">
-    </div>
-
-    <!-- Mensaje final -->
-    <div id="message" class="message">
-        Y te escojo a ti, siempre a ti. No te cambiaría por nadie ni por nada en el mundo. Siempre serás tú, aunque estemos lejos, aunque tengamos diferencias, siempre tú y nadie más que tú. Te amo, Anelhi.
+    <div id="image" class="image-container">
+        <img src="https://cdn.pixabay.com/photo/2014/04/03/11/57/lotus-312694_1280.png" alt="Flor de Loto San Valentín" class="finalImage">
     </div>
 
     <script>
-        // Función para mostrar la imagen y el mensaje
         function showImage() {
-            document.getElementById("image").style.display = "block"; // Muestra la imagen
-            document.getElementById("message").style.display = "block"; // Muestra el mensaje
-            document.querySelector(".btn").style.display = "none"; // Oculta el botón de "Sí, quiero"
+            document.getElementById("message").style.display = "none"; // Oculta el mensaje inicial
+            document.getElementById("finalMessage").style.display = "block"; // Muestra el mensaje final
+            var img = document.getElementById("image");
+            img.style.display = "block";  // Muestra la imagen con el mensaje final
         }
-
-        // Función para mover el botón "No quiero"
-        function moveNoQuiero() {
-            var noQuieroBtn = document.getElementById("no-quiero");
-            var randomTop = Math.floor(Math.random() * 90) + "vh"; // Posición aleatoria en el eje Y
-            var randomLeft = Math.floor(Math.random() * 90) + "vw"; // Posición aleatoria en el eje X
-            noQuieroBtn.style.top = randomTop;
-            noQuieroBtn.style.left = randomLeft;
-        }
-
-        // Efecto de corazones flotando
-        function createHeart() {
-            var heart = document.createElement("div");
-            heart.classList.add("heart-animation");
-            heart.style.left = Math.random() * 100 + "vw"; // Posición aleatoria en el eje X
-            document.body.appendChild(heart);
-
-            // Elimina el corazón después de la animación
-            setTimeout(function() {
-                heart.remove();
-            }, 4000);
-        }
-
-        // Crear corazones aleatorios en intervalos
-        setInterval(createHeart, 300);
-
-        // Mover "No quiero" al inicio
-        document.getElementById("no-quiero").style.position = "absolute";
-        document.getElementById("no-quiero").style.top = "50vh";
-        document.getElementById("no-quiero").style.left = "50vw";
     </script>
 
 </body>
