@@ -16,6 +16,7 @@
             height: 100vh;
             flex-direction: column;
             color: #6f42c1;
+            text-align: center;
         }
         h1 {
             font-size: 2.5rem;
@@ -61,7 +62,6 @@
             color: #4b0082;
             font-weight: bold;
             display: none;
-            transition: all 1s ease-in-out;
         }
         #finalMessage {
             font-size: 1.5rem;
@@ -69,13 +69,6 @@
             color: #8b008b;
             margin-top: 20px;
             display: none;
-        }
-        .image-container {
-            display: none;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
             animation: fadeIn 1s ease-in-out;
         }
         @keyframes fadeIn {
@@ -85,6 +78,14 @@
             to {
                 opacity: 1;
             }
+        }
+        #image {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: fadeIn 1s ease-in-out;
         }
         .finalImage {
             max-width: 90%;
@@ -104,7 +105,7 @@
         </div>
     </div>
 
-    <div id="image" class="image-container">
+    <div id="image">
         <img src="https://cdn.pixabay.com/photo/2014/04/03/11/57/lotus-312694_1280.png" alt="Flor de Loto San Valentín" class="finalImage">
     </div>
 
