@@ -3,140 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Pregunta San Valentín!</title>
+    <title>¿Quieres ser mi San Valentín?</title>
     <style>
         body {
-            background-color: #ffe6f2;
             text-align: center;
+            background-color: #ffe6f2;
             font-family: Arial, sans-serif;
             overflow: hidden;
         }
-
-        /* Estilo para el mensaje final */
-        #final-message {
-            font-size: 28px;
+        h1 {
             color: #ff1493;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+        }
+        .container {
             margin-top: 50px;
-            text-align: center;
-            display: none;
-            position: absolute;
-            z-index: 3;
-            font-family: 'Verdana', sans-serif;
-            opacity: 0;
-            animation: fadeIn 4s forwards;
         }
-
-        /* Animación de aparición */
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
+        .heart {
+            width: 100px;
+            height: auto;
+            margin: 10px;
         }
-
-        /* Estilo para los botones */
         .btn {
             display: inline-block;
             margin-top: 20px;
-            padding: 12px 30px;
+            padding: 10px 20px;
             background-color: #ff69b4;
             color: white;
-            font-size: 22px;
+            font-size: 20px;
             text-decoration: none;
-            border-radius: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-            transition: transform 0.3s ease;
+            border-radius: 10px;
+            cursor: pointer;
         }
-
-        .btn:hover {
-            transform: scale(1.1);
+        #image {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
         }
-
-        .btn-move {
+        .message {
+            font-size: 24px;
+            color: #ff1493;
+            font-weight: bold;
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            z-index: 1;
+            display: none;
+            z-index: 11;
+            animation: fadeIn 2s forwards;
         }
-
-        /* Efectos románticos */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
         .heart-animation {
             position: absolute;
-            top: 10%;
-            left: 10%;
-            font-size: 100px;
-            color: pink;
-            animation: heart 2s infinite;
+            top: 20px;
+            animation: heartAnimation 4s infinite;
         }
-
-        @keyframes heart {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            50% {
-                transform: scale(1.2);
-                opacity: 0.8;
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
+        @keyframes heartAnimation {
+            0% { top: 20px; left: 30px; }
+            25% { top: 30px; left: 50px; }
+            50% { top: 40px; left: 70px; }
+            75% { top: 50px; left: 90px; }
+            100% { top: 60px; left: 110px; }
         }
-
-        /* Corazones en movimiento */
-        .heart-floating {
-            position: absolute;
-            font-size: 40px;
-            animation: float 5s linear infinite;
-            opacity: 0.5;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(0) rotate(0deg);
-            }
-            100% {
-                transform: translateY(-100vh) rotate(360deg);
-            }
-        }
-
     </style>
 </head>
 <body>
+    <div class="container">
+        <h1>💖 ¡Hola, mi linda princesita! 💖</h1>
+        <p>Aunque aún no estés aquí, quería hacer algo especial para ti... Así que aquí está mi pregunta:</p>
+        <h2>¿Quieres ser mi San Valentín? 💕</h2>
+        <img src="https://cdn.uc.assets.prezly.com/5484e519-cf50-41e9-bf6f-19a972485149/-/resize/1108x/-/quality/best/-/format/auto/" class="heart">
+        <img src="https://w7.pngwing.com/pngs/398/472/png-transparent-hello-kitty-sanrio-puroland-cinnamoroll-my-melody-cinnamoroll-fictional-character-hello-kitty-keroppi-thumbnail.png" alt="Cinnamoroll con corazones" class="heart">
+        <br>
+        <a href="#" class="btn" onclick="showImage()">¡Sí, quiero! 💘</a>
+        <a href="#" class="btn" id="no-quiero" onclick="moveNoQuiero()">No quiero 😢</a>
+    </div>
 
-    <h1>💖 ¡Hola, mi linda princesita! 💖</h1>
-    <p>Aunq aun no estes aqui quería hacer algo especial para ti... así que aquí está mi pregunta:</p>
-    <h2>¿Quieres ser mi San Valentín? 💕</h2>
-    <img src="https://cdn.uc.assets.prezly.com/5484e519-cf50-41e9-bf6f-19a972485149/-/resize/1108x/-/quality/best/-/format/auto/" class="heart">
-    <br>
-    <a href="#" class="btn" onclick="showImage()">¡Sí, quiero! 💘</a>
-    <br>
-    <a href="#" class="btn btn-move" id="no-btn" onclick="moveNo()">No quiero 😢</a>
-
-    <!-- Efectos de corazones flotando -->
-    <div class="heart-floating" style="top: 15%; left: 20%;">❤️</div>
-    <div class="heart-floating" style="top: 5%; left: 50%;">💖</div>
-    <div class="heart-floating" style="top: 30%; left: 70%;">💘</div>
+    <!-- Imagen que aparecerá al hacer clic en el botón "Sí quiero" -->
+    <div id="image">
+        <img src="https://cdn.pixabay.com/photo/2014/04/03/11/57/lotus-312694_1280.png" alt="Flor de Loto San Valentín" style="width: 100%; height: 100vh; object-fit: cover;">
+    </div>
 
     <!-- Mensaje final -->
-    <div id="final-message">
-        <p>Y te escojo a ti, siempre a ti. No te cambiaría por nadie ni por nada en el mundo. Siempre serás tú, aunque estemos lejos, aunque tengamos diferencias, siempre tú y nadie más que tú. Te amo, Anelhi.</p>
+    <div id="message" class="message">
+        Y te escojo a ti, siempre a ti. No te cambiaría por nadie ni por nada en el mundo. Siempre serás tú, aunque estemos lejos, aunque tengamos diferencias, siempre tú y nadie más que tú. Te amo, Anelhi.
     </div>
 
     <script>
+        // Función para mostrar la imagen y el mensaje
         function showImage() {
-            document.getElementById("final-message").style.display = "block";
+            document.getElementById("image").style.display = "block"; // Muestra la imagen
+            document.getElementById("message").style.display = "block"; // Muestra el mensaje
+            document.querySelector(".btn").style.display = "none"; // Oculta el botón de "Sí, quiero"
         }
 
-        let noBtn = document.getElementById("no-btn");
-
-        function moveNo() {
-            let x = Math.random() * window.innerWidth;
-            let y = Math.random() * window.innerHeight;
-            noBtn.style.left = x + "px";
-            noBtn.style.top = y + "px";
+        // Función para mover el botón "No quiero"
+        function moveNoQuiero() {
+            var noQuieroBtn = document.getElementById("no-quiero");
+            var randomTop = Math.floor(Math.random() * 90) + "vh"; // Posición aleatoria en el eje Y
+            var randomLeft = Math.floor(Math.random() * 90) + "vw"; // Posición aleatoria en el eje X
+            noQuieroBtn.style.top = randomTop;
+            noQuieroBtn.style.left = randomLeft;
         }
+
+        // Efecto de corazones flotando
+        function createHeart() {
+            var heart = document.createElement("div");
+            heart.classList.add("heart-animation");
+            heart.style.left = Math.random() * 100 + "vw"; // Posición aleatoria en el eje X
+            document.body.appendChild(heart);
+
+            // Elimina el corazón después de la animación
+            setTimeout(function() {
+                heart.remove();
+            }, 4000);
+        }
+
+        // Crear corazones aleatorios en intervalos
+        setInterval(createHeart, 300);
+
+        // Mover "No quiero" al inicio
+        document.getElementById("no-quiero").style.position = "absolute";
+        document.getElementById("no-quiero").style.top = "50vh";
+        document.getElementById("no-quiero").style.left = "50vw";
     </script>
 
 </body>
