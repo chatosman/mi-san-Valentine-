@@ -3,184 +3,243 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¿Quieres ser mi San Valentín?</title>
+    <title>¡Pregunta San Valentín!</title>
     <style>
         body {
+            background-color: #ffe6f2;
             text-align: center;
-            background: linear-gradient(45deg, #ffb3c1, #ff66b2);
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
+            font-family: Arial, sans-serif;
         }
 
-        h1 {
+        .kitty {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 50px auto;
+        }
+
+        /* Cabeza de Hello Kitty */
+        .kitty-head {
+            width: 200px;
+            height: 200px;
+            background-color: white;
+            border-radius: 50%;
+            border: 10px solid #ff69b4;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Ojos de Hello Kitty */
+        .kitty-eye-left, .kitty-eye-right {
+            width: 30px;
+            height: 30px;
+            background-color: black;
+            border-radius: 50%;
+            position: absolute;
+            top: 60px;
+        }
+        .kitty-eye-left {
+            left: 50px;
+        }
+        .kitty-eye-right {
+            right: 50px;
+        }
+
+        /* Nariz de Hello Kitty */
+        .kitty-nose {
+            width: 40px;
+            height: 40px;
+            background-color: #ff1493;
+            border-radius: 50%;
+            position: absolute;
+            top: 110px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Bigotes de Hello Kitty */
+        .kitty-whisker-left, .kitty-whisker-right {
+            width: 80px;
+            height: 2px;
+            background-color: black;
+            position: absolute;
+            top: 130px;
+        }
+        .kitty-whisker-left {
+            left: 10px;
+            transform: rotate(15deg);
+        }
+        .kitty-whisker-right {
+            right: 10px;
+            transform: rotate(-15deg);
+        }
+
+        /* Corazones en lugar de la flor de loto */
+        .heart {
             color: #ff1493;
-            font-size: 3em;
+            font-size: 40px;
+            position: absolute;
+        }
+
+        /* Ropa y decoraciones con corazones */
+        .kitty-heart {
+            color: #ff1493;
+            font-size: 50px;
+            position: absolute;
+            top: 200px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .kitty-heart:before {
+            content: "♥";
+            position: absolute;
+            top: -20px;
+            left: 0;
+            font-size: 40px;
+        }
+
+        /* Manos de Hello Kitty */
+        .kitty-hand-left, .kitty-hand-right {
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border-radius: 50%;
+            border: 5px solid #ff69b4;
+            position: absolute;
+            top: 170px;
+        }
+        .kitty-hand-left {
+            left: -60px;
+        }
+        .kitty-hand-right {
+            right: -60px;
+        }
+
+        /* Decoración con flores */
+        .kitty-rose {
+            position: absolute;
+            font-size: 40px;
+            color: #ff69b4;
+            top: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .kitty-rose:before {
+            content: "🌹";
+            font-size: 50px;
+            color: #ff1493;
+        }
+
+        .kitty-rose-left {
+            top: 40px;
+            left: 20px;
+        }
+
+        .kitty-rose-right {
+            top: 40px;
+            right: 20px;
+        }
+
+        /* Estilo para el iframe del video */
+        iframe {
             margin-top: 20px;
         }
 
-        h2 {
-            color: #fff;
-            font-size: 2em;
-            margin-top: 10px;
-            font-weight: bold;
+        /* Estilo para el contenedor de la imagen de la flor de loto */
+        #image {
+            display: none;
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
         }
 
-        .container {
+        #final-message {
+            font-size: 24px;
+            color: #ff1493;
             margin-top: 50px;
-            padding: 20px;
-        }
-
-        .heart {
-            width: 100px;
-            height: auto;
-            margin: 10px;
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .heart:hover {
-            transform: scale(1.1);
+            text-align: center;
+            display: none;
         }
 
         .btn {
             display: inline-block;
-            margin-top: 30px;
-            padding: 15px 30px;
+            margin-top: 20px;
+            padding: 10px 20px;
             background-color: #ff69b4;
             color: white;
-            font-size: 24px;
+            font-size: 20px;
             text-decoration: none;
-            border-radius: 50px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, background-color 0.3s ease;
+            border-radius: 10px;
         }
 
-        .btn:hover {
-            background-color: #ff3b5c;
-            transform: scale(1.1);
-        }
-
-        #image {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://cdn.pixabay.com/photo/2014/04/03/11/57/lotus-312694_1280.png');
-            background-size: cover;
-            background-position: center;
-            text-align: center;
-            animation: fadeIn 1s ease-out forwards;
-        }
-
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        #message {
+        .btn-move {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            color: white;
-            font-size: 2.5em;
-            font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            animation: fadeInMessage 2s ease-out forwards;
-        }
-
-        @keyframes fadeInMessage {
-            0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
-            100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-        }
-
-        #noThanksMessage {
-            position: absolute;
-            color: #ff3b5c;
-            font-size: 1.8em;
-            font-weight: bold;
-            animation: moveMessage 10s linear infinite;
-            pointer-events: none;
-            top: 20px;
-            left: 20px;
-            animation-duration: 5s;
-            transition: top 0.5s, left 0.5s;
-        }
-
-        @keyframes moveMessage {
-            0% { top: 0; left: 0; }
-            25% { top: 0; left: 90%; }
-            50% { top: 90%; left: 90%; }
-            75% { top: 90%; left: 0; }
-            100% { top: 0; left: 0; }
-        }
-
-        #finalMessage {
-            display: none;
-            font-size: 2em;
-            color: #fff;
-            font-weight: bold;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-            animation: fadeInFinalMessage 2s ease-out forwards;
-        }
-
-        @keyframes fadeInFinalMessage {
-            0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
-            100% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            z-index: 1;
         }
 
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>💖 ¡Hola, mi linda princesita! 💖</h1>
-        <p>Aunq aun no estes aqui quería hacer algo especial para ti... así que aquí está mi pregunta:</p>
-        <h2>¿Quieres ser mi San Valentín? 💕</h2>
-        <img src="https://cdn.uc.assets.prezly.com/5484e519-cf50-41e9-bf6f-19a972485149/-/resize/1108x/-/quality/best/-/format/auto/" class="heart">
-        <img src="https://w7.pngwing.com/pngs/398/472/png-transparent-hello-kitty-sanrio-puroland-cinnamoroll-my-melody-cinnamoroll-fictional-character-hello-kitty-keroppi-thumbnail.png" alt="Cinnamoroll con corazones" class="heart">
-        <br>
-        <a href="#" class="btn" onclick="showImage()">¡Sí, quiero! 💘</a>
-        <a href="#" class="btn" onclick="moveNoThanksMessage()">No quiero 😭</a>
 
-        <div id="image">
-            <div id="message">Nos vemos el 14 de febrero mi estrellita</div>
-        </div>
-
-        <!-- Aquí se agrega el mensaje final -->
-        <div id="finalMessage">
-            Y te escojo a ti, siempre a ti. No te cambiaría por nadie ni por nada en el mundo. Siempre serás tú, aunque estemos lejos, aunque tengamos diferencias, siempre tú y nadie más que tú. Te amo, Anelhi.
+    <div class="kitty">
+        <div class="kitty-head">
+            <div class="kitty-eye-left"></div>
+            <div class="kitty-eye-right"></div>
+            <div class="kitty-nose"></div>
+            <div class="kitty-whisker-left"></div>
+            <div class="kitty-whisker-right"></div>
+            <div class="kitty-heart">💖</div>
+            <div class="kitty-hand-left"></div>
+            <div class="kitty-hand-right"></div>
+            <div class="kitty-rose kitty-rose-left">🌹</div>
+            <div class="kitty-rose kitty-rose-right">🌹</div>
         </div>
     </div>
 
+    <h1>💖 ¡Hola, mi linda princesita! 💖</h1>
+    <p>Aunq aun no estes aqui quería hacer algo especial para ti... así que aquí está mi pregunta:</p>
+    <h2>¿Quieres ser mi San Valentín? 💕</h2>
+    <a href="#" class="btn" onclick="showImage()">¡Sí, quiero! 💘</a>
+    <br>
+    <a href="#" class="btn btn-move" id="no-btn" onclick="moveNo()">No quiero 😢</a>
+
+    <!-- Imagen que aparecerá al hacer clic en el botón -->
+    <div id="image">
+        <img src="https://cdn.pixabay.com/photo/2014/04/03/11/57/lotus-312694_1280.png" alt="Flor de Loto San Valentín" style="width: 80%;">
+    </div>
+
+    <div id="final-message">
+        <p>Y te escojo a ti, siempre a ti. No te cambiaría por nadie ni por nada en el mundo. Siempre serás tú, aunque estemos lejos, aunque tengamos diferencias, siempre tú y nadie más que tú. Te amo, Anelhi.</p>
+    </div>
+
+    <!-- Video de YouTube -->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/8JW6qzPCkE8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
     <script>
         function showImage() {
-            var img = document.getElementById("image");
-            img.style.display = "block";  // Muestra la imagen con el mensaje
-            document.querySelectorAll('.btn').forEach(function(btn) {
-                btn.style.pointerEvents = "none"; // Deshabilita los botones
-            });
-            setTimeout(function() {
-                document.getElementById("finalMessage").style.display = "block"; // Muestra el mensaje final después de un tiempo
-            }, 3000); // 3 segundos después de mostrar la imagen
+            document.getElementById("image").style.display = "block";
+            document.getElementById("final-message").style.display = "block";
         }
 
-        function moveNoThanksMessage() {
-            var noThanksMsg = document.getElementById("noThanksMessage");
-            noThanksMsg.style.display = "block";  // Muestra el mensaje de broma
-            var img = document.getElementById("image");
-            img.style.display = "none";  // Oculta la flor de loto
-            document.querySelectorAll('.btn').forEach(function(btn) {
-                btn.style.pointerEvents = "none"; // Deshabilita todos los botones
-            });
+        let noBtn = document.getElementById("no-btn");
+
+        function moveNo() {
+            let x = Math.random() * window.innerWidth;
+            let y = Math.random() * window.innerHeight;
+            noBtn.style.left = x + "px";
+            noBtn.style.top = y + "px";
         }
     </script>
+
 </body>
 </html>
 
