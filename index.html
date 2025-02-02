@@ -31,6 +31,25 @@
             text-decoration: none;
             border-radius: 10px;
         }
+        /* Estilos para la imagen */
+        #image {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        /* Estilo para el texto dentro de la flor */
+        #message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
     </style>
 </head>
 <body>
@@ -43,21 +62,22 @@
         <br>
         <a href="#" class="btn" onclick="showImage()">¡Sí, quiero! 💘</a>
 
-<!-- Imagen que aparecerá al hacer clic en el botón -->
-<div id="image">
-    <img src="https://cdn.pixabay.com/photo/2014/04/03/11/57/lotus-312694_1280.png" alt="Flor de Loto San Valentín" style="width: 80%;">
-</div>
+        <!-- Imagen que aparecerá al hacer clic en el botón -->
+        <div id="image">
+            <img src="https://cdn.pixabay.com/photo/2014/04/03/11/57/lotus-312694_1280.png" alt="Flor de Loto San Valentín" style="width: 80%;">
+            <div id="message">Nos vemos el 14 de febrero mi estrellita</div>
+        </div>
+    </div>
 
-<script>
-    function showImage() {
-        var img = document.getElementById("image");
-        img.style.display = "block";  // Muestra la imagen
-    }
-</script>
+    <script>
+        function showImage() {
+            var img = document.getElementById("image");
+            img.style.display = "block";  // Muestra la imagen con el mensaje
+        }
+    </script>
 
 </body>
 </html>
-
 
 
 
