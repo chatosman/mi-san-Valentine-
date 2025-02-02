@@ -12,24 +12,6 @@
             overflow: hidden;
         }
 
-        /* Estilo para la flor de loto */
-        #image {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("https://cdn.pixabay.com/photo/2014/04/03/11/57/lotus-312694_1280.png");
-            background-size: cover;
-            background-position: center;
-            z-index: 2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 2s ease-in-out;
-        }
-
         /* Estilo para el mensaje final */
         #final-message {
             font-size: 28px;
@@ -138,16 +120,13 @@
     <div class="heart-floating" style="top: 5%; left: 50%;">💖</div>
     <div class="heart-floating" style="top: 30%; left: 70%;">💘</div>
 
-    <!-- Imagen de la flor de loto -->
-    <div id="image">
-        <div id="final-message">
-            <p>Y te escojo a ti, siempre a ti. No te cambiaría por nadie ni por nada en el mundo. Siempre serás tú, aunque estemos lejos, aunque tengamos diferencias, siempre tú y nadie más que tú. Te amo, Anelhi.</p>
-        </div>
+    <!-- Mensaje final -->
+    <div id="final-message">
+        <p>Y te escojo a ti, siempre a ti. No te cambiaría por nadie ni por nada en el mundo. Siempre serás tú, aunque estemos lejos, aunque tengamos diferencias, siempre tú y nadie más que tú. Te amo, Anelhi.</p>
     </div>
 
     <script>
         function showImage() {
-            document.getElementById("image").style.display = "flex";
             document.getElementById("final-message").style.display = "block";
         }
 
