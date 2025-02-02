@@ -8,87 +8,64 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: #f8f9fa;
-            font-family: 'Georgia', serif;
+            background-color: #ffe6f2;
+            font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             flex-direction: column;
-            color: #6f42c1;
             text-align: center;
+            color: #e60073;
         }
         h1 {
             font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: #ff4b9d;
+            margin-bottom: 10px;
         }
         h2 {
             font-size: 1.8rem;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             font-weight: normal;
         }
         .container {
-            text-align: center;
-            padding: 40px;
-            background: linear-gradient(to bottom, #ff6ec7, #ff9a9e);
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            background: #ff80bf;
+            border-radius: 10px;
             width: 70%;
-            max-width: 600px;
+            max-width: 500px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
         .btn {
-            display: inline-block;
-            padding: 15px 30px;
+            padding: 12px 25px;
             font-size: 1.5rem;
-            background-color: #ff4b9d;
+            background-color: #ff1e77;
             color: white;
             text-decoration: none;
             border-radius: 10px;
             margin-top: 20px;
-            transition: background-color 0.3s;
         }
         .btn:hover {
-            background-color: #f064cb;
-        }
-        .heart {
-            width: 70px;
-            height: auto;
-            margin: 10px;
+            background-color: #ff4c92;
         }
         #message {
             font-size: 1.3rem;
             margin-top: 20px;
             color: #4b0082;
-            font-weight: bold;
             display: none;
         }
         #finalMessage {
             font-size: 1.5rem;
-            font-style: italic;
             color: #8b008b;
             margin-top: 20px;
             display: none;
-            animation: fadeIn 1s ease-in-out;
-        }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
+            font-style: italic;
         }
         #image {
             display: none;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation: fadeIn 1s ease-in-out;
+            margin-top: 20px;
         }
         .finalImage {
-            max-width: 90%;
+            width: 80%;
             border-radius: 15px;
         }
     </style>
@@ -120,3 +97,4 @@
 
 </body>
 </html>
+
