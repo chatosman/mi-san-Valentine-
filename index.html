@@ -11,142 +11,18 @@
             font-family: Arial, sans-serif;
         }
 
-        .kitty {
-            position: relative;
-            width: 300px;
-            height: 300px;
-            margin: 50px auto;
-        }
-
-        /* Cabeza de Hello Kitty */
-        .kitty-head {
-            width: 200px;
-            height: 200px;
-            background-color: white;
-            border-radius: 50%;
-            border: 10px solid #ff69b4;
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* Ojos de Hello Kitty */
-        .kitty-eye-left, .kitty-eye-right {
-            width: 30px;
-            height: 30px;
-            background-color: black;
-            border-radius: 50%;
-            position: absolute;
-            top: 60px;
-        }
-        .kitty-eye-left {
-            left: 50px;
-        }
-        .kitty-eye-right {
-            right: 50px;
-        }
-
-        /* Nariz de Hello Kitty */
-        .kitty-nose {
-            width: 40px;
-            height: 40px;
-            background-color: #ff1493;
-            border-radius: 50%;
-            position: absolute;
-            top: 110px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* Bigotes de Hello Kitty */
-        .kitty-whisker-left, .kitty-whisker-right {
-            width: 80px;
-            height: 2px;
-            background-color: black;
-            position: absolute;
-            top: 130px;
-        }
-        .kitty-whisker-left {
-            left: 10px;
-            transform: rotate(15deg);
-        }
-        .kitty-whisker-right {
-            right: 10px;
-            transform: rotate(-15deg);
-        }
-
-        /* Corazones en lugar de la flor de loto */
+        /* Corazones y flores */
         .heart {
-            color: #ff1493;
-            font-size: 40px;
-            position: absolute;
-        }
-
-        /* Ropa y decoraciones con corazones */
-        .kitty-heart {
-            color: #ff1493;
-            font-size: 50px;
-            position: absolute;
-            top: 200px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .kitty-heart:before {
-            content: "♥";
-            position: absolute;
-            top: -20px;
-            left: 0;
-            font-size: 40px;
-        }
-
-        /* Manos de Hello Kitty */
-        .kitty-hand-left, .kitty-hand-right {
-            width: 50px;
-            height: 50px;
-            background-color: white;
-            border-radius: 50%;
-            border: 5px solid #ff69b4;
-            position: absolute;
-            top: 170px;
-        }
-        .kitty-hand-left {
-            left: -60px;
-        }
-        .kitty-hand-right {
-            right: -60px;
-        }
-
-        /* Decoración con flores */
-        .kitty-rose {
-            position: absolute;
-            font-size: 40px;
-            color: #ff69b4;
-            top: 60px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .kitty-rose:before {
-            content: "🌹";
-            font-size: 50px;
-            color: #ff1493;
-        }
-
-        .kitty-rose-left {
-            top: 40px;
-            left: 20px;
-        }
-
-        .kitty-rose-right {
-            top: 40px;
-            right: 20px;
+            width: 100px;
+            height: auto;
+            margin: 10px;
         }
 
         /* Estilo para el iframe del video */
         iframe {
             margin-top: 20px;
+            width: 100%;
+            height: 500px;
         }
 
         /* Estilo para el contenedor de la imagen de la flor de loto */
@@ -190,24 +66,12 @@
 </head>
 <body>
 
-    <div class="kitty">
-        <div class="kitty-head">
-            <div class="kitty-eye-left"></div>
-            <div class="kitty-eye-right"></div>
-            <div class="kitty-nose"></div>
-            <div class="kitty-whisker-left"></div>
-            <div class="kitty-whisker-right"></div>
-            <div class="kitty-heart">💖</div>
-            <div class="kitty-hand-left"></div>
-            <div class="kitty-hand-right"></div>
-            <div class="kitty-rose kitty-rose-left">🌹</div>
-            <div class="kitty-rose kitty-rose-right">🌹</div>
-        </div>
-    </div>
-
     <h1>💖 ¡Hola, mi linda princesita! 💖</h1>
     <p>Aunq aun no estes aqui quería hacer algo especial para ti... así que aquí está mi pregunta:</p>
     <h2>¿Quieres ser mi San Valentín? 💕</h2>
+    <img src="https://cdn.uc.assets.prezly.com/5484e519-cf50-41e9-bf6f-19a972485149/-/resize/1108x/-/quality/best/-/format/auto/" class="heart">
+    <img src="https://w7.pngwing.com/pngs/398/472/png-transparent-hello-kitty-sanrio-puroland-cinnamoroll-my-melody-cinnamoroll-fictional-character-hello-kitty-keroppi-thumbnail.png" alt="Cinnamoroll con corazones" class="heart">
+    <br>
     <a href="#" class="btn" onclick="showImage()">¡Sí, quiero! 💘</a>
     <br>
     <a href="#" class="btn btn-move" id="no-btn" onclick="moveNo()">No quiero 😢</a>
@@ -221,8 +85,8 @@
         <p>Y te escojo a ti, siempre a ti. No te cambiaría por nadie ni por nada en el mundo. Siempre serás tú, aunque estemos lejos, aunque tengamos diferencias, siempre tú y nadie más que tú. Te amo, Anelhi.</p>
     </div>
 
-    <!-- Video de YouTube -->
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/8JW6qzPCkE8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <!-- Video de YouTube con música -->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/8JW6qzPCkE8?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
     <script>
         function showImage() {
@@ -242,6 +106,4 @@
 
 </body>
 </html>
-
-
 
