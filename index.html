@@ -9,16 +9,10 @@
             background-color: #ffe6f2;
             text-align: center;
             font-family: Arial, sans-serif;
+            overflow: hidden;
         }
 
-        /* Corazones y flores */
-        .heart {
-            width: 100px;
-            height: auto;
-            margin: 10px;
-        }
-
-        /* Estilo para el contenedor de la imagen de la flor de loto */
+        /* Estilo para la flor de loto */
         #image {
             display: none;
             position: absolute;
@@ -33,31 +27,46 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            transition: opacity 2s ease-in-out;
         }
 
         /* Estilo para el mensaje final */
         #final-message {
-            font-size: 24px;
+            font-size: 28px;
             color: #ff1493;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
             margin-top: 50px;
             text-align: center;
             display: none;
             position: absolute;
             z-index: 3;
             font-family: 'Verdana', sans-serif;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            opacity: 0;
+            animation: fadeIn 4s forwards;
+        }
+
+        /* Animación de aparición */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
 
         /* Estilo para los botones */
         .btn {
             display: inline-block;
             margin-top: 20px;
-            padding: 10px 20px;
+            padding: 12px 30px;
             background-color: #ff69b4;
             color: white;
-            font-size: 20px;
+            font-size: 22px;
             text-decoration: none;
-            border-radius: 10px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
         }
 
         .btn-move {
@@ -66,6 +75,48 @@
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 1;
+        }
+
+        /* Efectos románticos */
+        .heart-animation {
+            position: absolute;
+            top: 10%;
+            left: 10%;
+            font-size: 100px;
+            color: pink;
+            animation: heart 2s infinite;
+        }
+
+        @keyframes heart {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Corazones en movimiento */
+        .heart-floating {
+            position: absolute;
+            font-size: 40px;
+            animation: float 5s linear infinite;
+            opacity: 0.5;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+            }
         }
 
     </style>
@@ -82,7 +133,12 @@
     <br>
     <a href="#" class="btn btn-move" id="no-btn" onclick="moveNo()">No quiero 😢</a>
 
-    <!-- Imagen que aparecerá al hacer clic en el botón -->
+    <!-- Efectos de corazones flotando -->
+    <div class="heart-floating" style="top: 15%; left: 20%;">❤️</div>
+    <div class="heart-floating" style="top: 5%; left: 50%;">💖</div>
+    <div class="heart-floating" style="top: 30%; left: 70%;">💘</div>
+
+    <!-- Imagen de la flor de loto -->
     <div id="image">
         <div id="final-message">
             <p>Y te escojo a ti, siempre a ti. No te cambiaría por nadie ni por nada en el mundo. Siempre serás tú, aunque estemos lejos, aunque tengamos diferencias, siempre tú y nadie más que tú. Te amo, Anelhi.</p>
@@ -107,3 +163,4 @@
 
 </body>
 </html>
+
