@@ -7,49 +7,112 @@
     <style>
         body {
             text-align: center;
-            background-color: #ffe6f2;
-            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #ffb3c1, #ff66b2);
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
         }
+
         h1 {
             color: #ff1493;
+            font-size: 3em;
+            margin-top: 20px;
         }
+
+        h2 {
+            color: #fff;
+            font-size: 2em;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
         .container {
             margin-top: 50px;
+            padding: 20px;
         }
+
         .heart {
             width: 100px;
             height: auto;
             margin: 10px;
+            transition: transform 0.3s ease-in-out;
         }
+
+        .heart:hover {
+            transform: scale(1.1);
+        }
+
         .btn {
             display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
+            margin-top: 30px;
+            padding: 15px 30px;
             background-color: #ff69b4;
             color: white;
-            font-size: 20px;
+            font-size: 24px;
             text-decoration: none;
-            border-radius: 10px;
+            border-radius: 50px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, background-color 0.3s ease;
         }
-        /* Estilos para la imagen */
+
+        .btn:hover {
+            background-color: #ff3b5c;
+            transform: scale(1.1);
+        }
+
         #image {
             display: none;
             text-align: center;
-            margin-top: 20px;
+            margin-top: 50px;
             position: relative;
+            animation: fadeIn 1s ease-out forwards;
         }
 
-        /* Estilo para el texto dentro de la flor */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
         #message {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             color: white;
-            font-size: 24px;
+            font-size: 28px;
             font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
+
+        #noThanksMessage {
+            display: none;
+            position: absolute;
+            color: #ff3b5c;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-top: 30px;
+            pointer-events: none;
+            animation: moveMessage 10s linear infinite;
+        }
+
+        @keyframes moveMessage {
+            0% { top: 0; left: 0; }
+            25% { top: 0; left: 90%; }
+            50% { top: 90%; left: 90%; }
+            75% { top: 90%; left: 0; }
+            100% { top: 0; left: 0; }
+        }
+
+        #finalMessage {
+            display: none;
+            font-size: 1.8em;
+            color: #fff;
+            font-weight: bold;
+            margin-top: 50px;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
     </style>
 </head>
 <body>
@@ -61,11 +124,18 @@
         <img src="https://w7.pngwing.com/pngs/398/472/png-transparent-hello-kitty-sanrio-puroland-cinnamoroll-my-melody-cinnamoroll-fictional-character-hello-kitty-keroppi-thumbnail.png" alt="Cinnamoroll con corazones" class="heart">
         <br>
         <a href="#" class="btn" onclick="showImage()">¡Sí, quiero! 💘</a>
+        <a href="#" class="btn" onclick="moveNoThanksMessage()">No quiero 😭</a>
 
-        <!-- Imagen que aparecerá al hacer clic en el botón -->
         <div id="image">
             <img src="https://cdn.pixabay.com/photo/2014/04/03/11/57/lotus-312694_1280.png" alt="Flor de Loto San Valentín" style="width: 80%;">
             <div id="message">Nos vemos el 14 de febrero mi estrellita</div>
+        </div>
+
+        <div id="noThanksMessage">¡Qué mal! 😢 ¡Me duele el corazón! 💔 Pero está bien, seguiré esperando...</div>
+
+        <!-- Aquí se agrega el mensaje final -->
+        <div id="finalMessage">
+            Y te escojo a ti, siempre a ti. No te cambiaría por nadie ni por nada en el mundo. Siempre serás tú, aunque estemos lejos, aunque tengamos diferencias, siempre tú y nadie más que tú. Te amo, Anelhi.
         </div>
     </div>
 
@@ -73,9 +143,25 @@
         function showImage() {
             var img = document.getElementById("image");
             img.style.display = "block";  // Muestra la imagen con el mensaje
+            document.getElementById("noThanksMessage").style.display = "none";  // Oculta el mensaje de broma
+            document.querySelectorAll('.btn').forEach(function(btn) {
+                btn.style.pointerEvents = "none"; // Deshabilita los botones
+            });
+            setTimeout(function() {
+                document.getElementById("finalMessage").style.display = "block"; // Muestra el mensaje final después de un tiempo
+            }, 3000); // 3 segundos después de mostrar la imagen
+        }
+
+        function moveNoThanksMessage() {
+            var noThanksMsg = document.getElementById("noThanksMessage");
+            noThanksMsg.style.display = "block";  // Muestra el mensaje de broma
+            var img = document.getElementById("image");
+            img.style.display = "none";  // Oculta la flor de loto
+            document.querySelectorAll('.btn').forEach(function(btn) {
+                btn.style.pointerEvents = "none"; // Deshabilita todos los botones
+            });
         }
     </script>
-
 </body>
 </html>
 
